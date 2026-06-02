@@ -1,0 +1,47 @@
+CREATE TABLE IF NOT EXISTS profile (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  title VARCHAR(160) NOT NULL,
+  location VARCHAR(160) NOT NULL,
+  email VARCHAR(160) NOT NULL,
+  summary TEXT NOT NULL,
+  resume_url TEXT,
+  github_url TEXT,
+  linkedin_url TEXT,
+  website_url TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS projects (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(160) NOT NULL,
+  slug VARCHAR(180) UNIQUE NOT NULL,
+  summary TEXT NOT NULL,
+  description TEXT NOT NULL,
+  stack TEXT[] NOT NULL DEFAULT '{}',
+  image_url TEXT NOT NULL,
+  demo_url TEXT,
+  repo_url TEXT,
+  featured BOOLEAN DEFAULT true,
+  sort_order INTEGER DEFAULT 100,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS skills (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  category VARCHAR(120) NOT NULL,
+  sort_order INTEGER DEFAULT 100,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE (name, category)
+);
+
+CREATE TABLE IF NOT EXISTS contact_messages (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(140) NOT NULL,
+  email VARCHAR(180) NOT NULL,
+  message TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
