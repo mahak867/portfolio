@@ -389,3 +389,16 @@ footer p {
   font-weight: 400;
   letter-spacing: 0.02em;
 }
+
+.badge-complete {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(148, 163, 184, 0.08);
+  color: #64748b;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  white-space: nowrap;
+}
